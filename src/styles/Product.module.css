@@ -1,6 +1,7 @@
 .container {
   height: calc(100vh - 100px);
   display: flex;
+  margin-top: 100px;
 }
 
 .left {
@@ -14,12 +15,17 @@
 .right {
   flex: 1;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .imgContainer {
   width: 80%;
   height: 80%;
   position: relative;
+}
+
+.title {
+  margin-bottom: 15px;
 }
 
 .price {
@@ -29,7 +35,17 @@
   border-bottom: 1px solid #d1411e;
 }
 
+.desc {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.choose {
+  margin-bottom: 10px;
+}
+
 .sizes {
+  margin-bottom: 10px;
   width: 40%;
   display: flex;
   justify-content: space-between;
