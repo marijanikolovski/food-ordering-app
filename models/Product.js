@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema(
   {
@@ -18,14 +18,16 @@ const ProductSchema = new mongoose.Schema(
     },
     prices: {
       type: [Number],
-      required: true
+      required: true,
     },
     extraOptions: {
-      type: [{
-        text: { type: String, required: true },
-        price: { tupe: Number, required: true }
-      }]
-    }
+      type: [
+        {
+          text: { type: String, required: true },
+          price: { type: Number, required: true },
+        },
+      ],
+    },
   },
   { timestamps: true }
 );
