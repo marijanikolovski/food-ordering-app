@@ -20,7 +20,9 @@ export const Navbar = () => {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <li className={styles.listItem}>Homepage</li>
+          <Link href="/">
+            <li className={styles.listItem}>Homepage</li>
+          </Link>
           <Link href={'/'}>
             <li className={styles.listItem}>Products</li>
           </Link>

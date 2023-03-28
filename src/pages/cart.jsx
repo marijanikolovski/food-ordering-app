@@ -11,15 +11,17 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { reset } from "@/store/products/slice";
+import OrderDetail from "@/components/OrderDetail";
 
 const Cart = () => {
   const cart = useSelector(selectCart);
   const [open, setOpen] = useState(false);
+  const [cash, setCash] = useState(false);
   const amount = cart.total;
   const currency = "USD";
   const style = { layout: "vertical" };
   const dispatch = useDispatch();
-
+  const router = useRouter();
 
   const createOrder = async (data) => {
     try {
@@ -157,7 +159,12 @@ const Cart = () => {
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
-              <button className={styles.payButton}>CASH ON DELIVERY</button>
+              <button
+                className={styles.payButton}
+                onClick={() => setCash(true)}
+              >
+                CASH ON DELIVERY
+              </button>
               <PayPalScriptProvider
                 options={{
                   "client-id": "test",
@@ -173,6 +180,12 @@ const Cart = () => {
             <button onClick={() => setOpen(true)} className={styles.button}>CHECKOUT NOW!</button>
           )}      
         </div>
+        {cash &&
+          <OrderDetail
+            createOrder={createOrder}
+            total={cart.total}
+          />
+        }
       </div>
     </div>
   );
