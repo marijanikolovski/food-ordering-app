@@ -6,7 +6,7 @@ const OrderDetail = ({ createOrder, total }) => {
   const [address, setAddress] = useState('');
 
   const handleClick = () => {
-    createOrder({ customer, address, total, method: 0 })
+    createOrder({ customer, address, total, method: 1 })
   }
   return (
     <div className={styles.container}>
